@@ -119,7 +119,7 @@ __pycache__
 .ipynb_checkpoints
 
 # Big data
-*/unsynced-data
+unsynced-data/
 
 # Secrets
 config.py
