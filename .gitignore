@@ -102,3 +102,21 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Local Netlify folder
+.netlify
+
+#System
+.DS_Store
+.vscode
+
+# QGIS files
+.qgz
+
+# Python stuff
+config.py
+__pycache__
+.ipynb_checkpoints
+
+# Big data
+*/unsynced-data
