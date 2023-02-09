@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FEWSNET & Population</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <!-- create a div in the upper left corner that is styled like date-box -->
+    <div id="map-panel" class="map-panel">
+      <div>
+        <h1>Historical FEWS NET Data</h1>
+        <br />
+        <div id="range-value" class="range-value"></div>
+        <div id="range-slider" style="padding: 3px">
+          <input type="range" min="0" step="1" />
+        </div>
+        <hr />
+        <div style="padding: 1px">
+          <h2>Style by:</h2>
+          <!-- add a 1px space here -->
+          <div style="padding: 3px"></div>
+          <input type="checkbox" name="population Layer" id="population" checked />
+          <label for="checkbox1">Population</label>
+        </div>
+        <hr />
+        <div>
+          <h2>Map Settings:</h2>
+          <div style="padding: 3px"></div>
+          <input type="checkbox" name="satellite-layer" id="sat" />
+          <label for="checkbox2">Satellite</label>
+        </div>
+      </div>
+      <hr />
+      <div id="chart"></div>
+      <div>
+        <hr />
+        <sourcefont class="sourcefont"> Source: FEWS NET </sourcefont>
+        <div id="date-id" class="sourcefont"></div>
+      </div>
+      <!-- add bootstrap button that says more information -->
+      <div class="text-center">
+        <button type="button" class="text-center align-items-center btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">More Info</button>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">How to interpret this map</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>This map depicts food security ratings from FEWS NET (Famine Early Warning System) illustrating food insecurity in nations around the world. Choose the date of the report using the slider in the upper left of the menu. The circle colors reflect the rating given to that region. Use the style by menu to style the circle sizes by population or default circle sizes. Click on any rating dot on the map to see more information about that region and a historical graph of that regions food security. <br> <br>FEWS NET uses the IPC rating system which illustrates food insecurity by color:</p>
+            <p>IPC Phase 1: Minimal (Green)
+            <br>
+            IPC Phase 2: Stressed (Yellow)
+            <br>
+            IPC Phase 3: Crisis (Orange)
+            <br>
+            IPC Phase 4: Emergency (Red)
+            <br>
+            IPC Phase 5: Famine (Dark Red)
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
+<!-- new line -->
+

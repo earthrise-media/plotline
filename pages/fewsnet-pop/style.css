@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+/* change h2to use montserrat */
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+/* change p to use montserrat */
+p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+.sourcefont {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8em;
+  font-weight: 1000;
+  margin: 0;
+  padding: 0;
+  color: #2f1f0e;
+}
+
+/* add a div to hold text in upper left corner of page
+    and give it a background color */
+#map-panel {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
+  margin: 10px;
+}
+
+.foggy-glass {
+  width: 25%;
+  float: left;
+  filter: blur(1px);
+  opacity: 0.5;
+  background: yellow;
+  z-index: 30;
+}
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px "Courier New", monospace;
+  font-weight: 1000;
+}
+
+#range-slider {
+  width: 400px;
+}
+
+#range-slider input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: #ddd;
+  height: 10px;
+  border-radius: 5px;
+}
+
+#range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 10px;
+  background: #96948d;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#range-slider input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  background: #666;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#range-value {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.c3-axis-y text, .c3-axis-x text 
+{
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.0em;
+  font-weight: 600;
+}
+
+.c3-axis-x text {
+  font-size: .9em;
+}
+
+.c3-axis-x path {
+  stroke: rgb(151, 150, 148) !important;
+}
+
+.c3-axis-y path {
+  stroke: rgb(151, 150, 148) !important;
+}
+
+/* make a nice gray button with a drop shadow */
+.more-info-button {
+  background-color: #96948d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
+}

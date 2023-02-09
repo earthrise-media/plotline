@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+h1 {
+    font-family: 'Montserrat', sans-serif ;
+    font-size: 3em;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+/* change h2to use montserrat */
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+/* change p to use montserrat */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+/* add a div to hold text in upper left corner of page
+    and give it a background color */
+#date-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.5);
+}

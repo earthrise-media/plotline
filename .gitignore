@@ -120,3 +120,8 @@ __pycache__
 
 # Big data
 */unsynced-data
+
+# Secrets
+config.py
+secrets.json
+shared-secrets.json
