@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import requests
 from bs4 import BeautifulSoup
+import lxml
 
 
 st.title("AWS Data", anchor=None)
