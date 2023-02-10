@@ -11,8 +11,8 @@ from datetime import date
 st.set_page_config(
 	layout="centered",  # Can be "centered" or "wide". In the future also "dashboard", etc.
 	initial_sidebar_state="auto",  # Can be "auto", "expanded", "collapsed"
-	page_title="USDA Data Explorer",  # String or None. Strings get appended with "• Streamlit". 
-	page_icon="./assets/img/earthrise_logo.png",  # String, anything supported by st.image, or None.
+	page_title="The Plotline",  # String or None. Strings get appended with "• Streamlit". 
+	page_icon="./assets/earthrise_logo.png",  # String, anything supported by st.image, or None.
 )
 
 st.title("The Plotline Data Exploration App")
