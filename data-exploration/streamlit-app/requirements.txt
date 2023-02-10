@@ -1,4 +1,6 @@
 matplotlib==3.4.3
+pandas==1.5.2
 geopandas==0.11.0
 pydeck==0.7.1
 plotly==5.3.1
+beautifulsoup4==4.11.1
