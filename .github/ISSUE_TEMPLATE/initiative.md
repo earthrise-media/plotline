@@ -3,7 +3,7 @@ name: Initiative
 about: This template should be used to describe a major part of the Plotline Project.
   Note, this is an EXTERNAL initiative and will be publicly visible.
 title: ''
-labels: Initiative
+labels: initiative, task
 assignees: ''
 
 ---
