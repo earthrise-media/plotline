@@ -16,4 +16,4 @@ st.set_page_config(
 )
 
 st.title("The Plotline Data Exploration App")
-st.write("This app is meant to be a dashboard of sorts of data that we are exploring or have explored")
+st.write("This app is meant to be a dashboard of sorts for data we've explored and tools we've built to support these endevours")

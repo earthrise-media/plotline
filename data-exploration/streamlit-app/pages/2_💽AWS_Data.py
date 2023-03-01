@@ -7,7 +7,7 @@ import lxml
 
 st.title("AWS Data", anchor=None)
 # st.text()
-st.markdown("We use AWS to store some of our larger data files we work with in our notebooks or other projects. The files are stored in a public S3 bucket and can be accessed directly via URL. Select the file you are interested in from the dropdown menu below. Click the link to download the file.")
+st.markdown("We use AWS to store most of our larger data files we work with in our notebooks or other projects. The files are stored in a public S3 bucket and can be accessed directly via URL. Select the file you are interested in from the dropdown menu below. Click the link to download the file.")
 ckfolderxml = BeautifulSoup(requests.get("https://earthgenome-foodsecurity.s3.amazonaws.com").text, "xml")
 egfolderxml = BeautifulSoup(requests.get("https://plotline-public-data.s3.us-east-2.amazonaws.com").text, "xml")
 
