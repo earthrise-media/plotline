@@ -1,46 +1,208 @@
+@font-face {
+    font-family: eiko-medium;
+    src: url("./assets/fonts/Eiko-Medium.otf");
+}
+@font-face {
+    font-family: eiko-thin;
+    src: url("./assets/fonts/Eiko-Thin.otf");
+}
+@font-face {
+    font-family: eiko-heavy;
+    src: url("./assets/fonts/Eiko-Heavy.otf");
+}
+@font-face {
+    font-family: eiko-italic;
+    src: url("./assets/fonts/Eiko-.otf");
+}
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: eiko-thin;
+  
 }
-
+a,
+a:hover,
+a:visited {
+  color: #0071bc;
+}
 #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -5;
+}
+#mapInset {
+  bottom: 50px;
+  right: 30px;
+  height: 180px;
+  width: 250px;
+  max-width: 100%;
+  position: fixed;
+  z-index: -4;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+#mapInset .mapboxgl-ctrl-bottom-left {
+  display: none;
+}
+@media (max-width: 500px) {
+  #mapInset {
+    display: none;
+  }
+}
+#header {
+  margin: auto;
+  width: 100%;
+  position: relative;
+  z-index: -4;
+}
+#header h1,
+#header h2,
+#header p {
+  margin: 0;
+  padding: 2vh 2vw;
+  text-align: center;
+}
+#footer {
+  width: 100%;
+  min-height: 5vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  text-align: center;
+  line-height: 25px;
+  font-size: 13px;
+  position: relative;
+  z-index: -4;
+}
+#features {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.hidden {
+  visibility: hidden;
+}
+.centered {
+  width: 50vw;
+  margin: 0 auto;
+}
+.lefty {
+  width: 33vw;
+  margin-left: 5vw;
+}
+.righty {
+  width: 33vw;
+  margin-left: 62vw;
+}
+.fully {
+  width: 100%;
+  margin: auto;
+}
+.light {
+  color: #444;
+  background-color: #eee9e0;
+  -webkit-border-radius: 30px;
+}
+.dark {
+  color: #fafafa;
+  background-color: #444;
+}
+.step {
+  padding-bottom: 50vh;
+  /* margin-bottom: 10vh; */
+  opacity: 0.25;
+}
+.step.active {
+  opacity: 1;
 }
 
-
-h1 {
-    font-family: 'Montserrat', sans-serif ;
-    font-size: 3em;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-}
-/* change h2to use montserrat */
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2em;
-    font-weight: 200;
-    margin: 0;
-    padding: 0;
-}
-/* change p to use montserrat */
-p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    font-weight: 100;
-    margin: 0;
-    padding: 0;
+.step div {
+  padding: 5px 25px;
+  line-height: 25px;
+  font-size: 16px;
+  text-align: justify;
+  /* shadow */
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-/* add a div to hold text in upper left corner of page
-    and give it a background color */
-#date-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    background-color: rgba(255,255,255,0.5);
+.step img {
+  width: 100%;
+}
+
+@media (max-width: 750px) {
+  .centered,
+  .lefty,
+  .righty,
+  .fully {
+    width: 90vw;
+    margin: 0 auto;
+  }
+}
+
+/* Fix issue on mobile browser where scroll breaks  */
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+  touch-action: unset;
+}
+
+#video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: -2;
+}
+#video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+#video-overlay h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 80px;
+  font-family: eiko-thin;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 3px black;
+}
+#video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+#content {
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#full-photo {
+  top: 0;
+  background-image: url("./assets/4971108904_988f6d5592_o.jpg");
+  position: fixed;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  z-index: -3;
+  /*    display: none;*/
+  opacity: 0;
+  /* Hidden by default block turns it on */
+  transition: width 0s, height 0s, opacity 1s;
 }
