@@ -219,7 +219,7 @@ map.on("load", function () {
     paint: {
       "fill-extrusion-opacity": 0,
       "fill-extrusion-color": ["interpolate", ["linear"], ["get", "flood_sum"], 10323, "#d8e4ee", 64140, "#11304b"],
-      "fill-extrusion-height": 0,
+      "fill-extrusion-height": 100,
     },
   });
 
@@ -245,6 +245,12 @@ map.on("load", function () {
       } else {
         document.getElementById("full-photo").style.opacity = "0";
         document.getElementById("map").style.opacity = "100";
+      }
+      if (chapter.map3d) {
+        // make map 3d
+        map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+            } else{
+        map.setTerrain();
       }
 
       response.element.classList.add("active");
