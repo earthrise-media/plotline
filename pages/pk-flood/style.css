@@ -14,10 +14,25 @@
     font-family: eiko-italic;
     src: url("./assets/fonts/Eiko-.otf");
 }
+
+/* Font options:
+font-family: 'B612 Mono', monospace;
+font-family: 'Carme', sans-serif;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Inconsolata', monospace;
+font-family: 'Kanit', sans-serif;
+font-family: 'Kumbh Sans', sans-serif;
+font-family: 'Major Mono Display', monospace;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Ubuntu Mono', monospace; */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: eiko-thin;
+  /* font-family: eiko-thin; */
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   
 }
 a,
@@ -116,6 +131,11 @@ a:visited {
 .step.active {
   opacity: 1;
 }
+/* normal background-color should be #eee9e0 */
+/* transparent background-color should be #eee9e000 */
+/* normal shadow should be rgba(0, 0, 0, 0.5) */
+/* transparent shadow should be rgba(0, 0, 0, 0)*/
+
 .step div {
   padding: 5px 25px;
   line-height: 25px;
@@ -166,15 +186,7 @@ a:visited {
   justify-content: center;
   z-index: -1;
 }
-#video-overlay h1 {
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-size: 80px;
-  font-family: eiko-thin;
-  letter-spacing: 0.1em;
-  text-shadow: 2px 2px 3px black;
-}
+
 #video {
   position: absolute;
   top: 0;
@@ -211,17 +223,31 @@ a:visited {
 }
 
 h3 {
-    font-family: eiko-heavy;
+    /* font-family: eiko-heavy; */
+    font-family: 'Kumbh Sans', sans-serif;
     font-size: 35px;
-    color: #444;
+    color: #ffffff;
     margin: 0;
     padding: 0;
     text-align: center;
     line-height: 35px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    text-shadow: 2px 2px 3px black;
 }
-
+#video-overlay h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 96px;
+  text-align: center;
+  /* font-family: eiko-thin; */
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 3px black;
+  /* text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 0px -4px 10px rgba(255,255,255,0.3); */
+}
 #video-overlay h2 {
   /* center */
   text-align: center;
@@ -229,7 +255,10 @@ h3 {
   padding: 0;
   color: white;
   font-size: 20px;
-  font-family: eiko-thin;
+  /* font-family: eiko-thin; */
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 400;
   letter-spacing: 0.1em;
-  text-shadow: 1px 1px 3px black;
+  /* text-shadow: 1px 1px 3px black; */
+  /* text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 0px -4px 10px rgba(255,255,255,0.3); */
 }

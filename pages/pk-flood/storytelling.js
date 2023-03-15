@@ -12,9 +12,9 @@ var layerTypes = {
 let floodDays = ["ff_230", "ff_234", "ff_239", "ff_242", "ff_246", "ff_249", "ff_251", "ff_253", "ff_254", "ff_258", "ff_261", "ff_263", "ff_265", "ff_266"];
 
 function animateFlood(day) {
-    if (day== 'flat'){
-        map.setPaintProperty("flood3d", "fill-extrusion-height", 0);
-    }
+  if (day == "flat") {
+    map.setPaintProperty("flood3d", "fill-extrusion-height", 0);
+  }
   let fillString = ["+"];
   for (let i = 0; i < day; i++) {
     fillString.push(["get", floodDays[i]]);
@@ -219,9 +219,9 @@ map.on("load", function () {
     paint: {
       "fill-extrusion-opacity": 0,
       "fill-extrusion-color": ["interpolate", ["linear"], ["get", "flood_sum"], 10323, "#d8e4ee", 64140, "#11304b"],
-      "fill-extrusion-height": 100,
+      "fill-extrusion-height": 0,
     },
-  });
+  }, "agflood0-grid");
 
   // As the map moves, grab and update bounds in inset map.
   if (config.inset) {
@@ -248,9 +248,22 @@ map.on("load", function () {
       }
       if (chapter.map3d) {
         // make map 3d
-        map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
-            } else{
+        map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      } else {
         map.setTerrain();
+      }
+      if (chapter.date) {
+        // const stepDivs = 
+        document.querySelectorAll('.step div').forEach(div => {
+          div.style.backgroundColor = '#eee9e000';
+          div.style.webkitBoxShadow = '5px 5px 10px 0px rgba(0, 0, 0, 0.0)';
+        });
+
+      } else {
+        document.querySelectorAll('.step div').forEach(div => {
+          div.style.backgroundColor = '#eee9e0';
+          div.style.webkitBoxShadow = '5px 5px 10px 0px rgba(0, 0, 0, 0.5)';
+        });
       }
 
       response.element.classList.add("active");
