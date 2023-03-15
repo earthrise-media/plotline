@@ -13,7 +13,7 @@ var config = {
   title: "",
   subtitle: "",
   byline: "",
-  // footer: 'Source: https://twitter.com/sherryrehman/status/1564278183368822785. <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
+  footer: "<a href='https://theplotline.org/'>The Plotline</a>",
   chapters: [
     {
       id: "ch1",
