@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>US Crops Production</title>
+    <link rel="shortcut icon" type="image/ico" href="https://s3.us-east-2.amazonaws.com/stories2.theplotline.org/favicon.ico" />
+
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+    <link href="./styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/darkly/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- make a bootstrap container that is 400 pixels wide with the id menu that is on the left side of the page and static-->
+    <div class="card m-2" style="width: 20%; z-index: 2;" id="menu">
+        <div class="card-body" id="menu-body" style="height: calc(100vh - 40px); overflow-y: scroll;">
+          <h5 class="card-title">Crop Explorer</h5>
+          <p class="card-text">Select a crop below to see where it's grown in the United States</p>
+        </div>
+      </div>
+    <div id="map"></div>
+    <script src="./index.js"></script>
+  </body>
+</html>
