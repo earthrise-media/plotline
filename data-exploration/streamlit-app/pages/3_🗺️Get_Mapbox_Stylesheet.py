@@ -8,12 +8,25 @@ st.markdown("We often use Mapbox maps to visualize our data. When we can we try 
 
 # streamlit text input
 
-def get_stylesheet(style_url, key):
-    
+def get_stylesheet(style_url, key, layer):
+
     if style_url == "":
         st.write("Please enter a Mapbox Style URL")
     elif key == "":
         st.write("Please enter a Mapbox access token")
+    elif layer != "" and key != "" and style_url != "":
+        st.write("Live Map link: " + "https://api.mapbox.com/styles/v1/"+ style_url[16:]+".html?title=view&access_token="+ key +"&zoomwheel=true&fresh=true")
+        stylesheet_url = "https://api.mapbox.com/styles/v1/" + style_url[16:] + "?access_token=" + key
+        response = requests.get(stylesheet_url)
+        if response.status_code == 200:
+            data = response.json()
+            for l in data["layers"]:
+                if l["id"] == layer:
+                    st.write(l)
+                    return
+            st.write("Layer not found try removing the layer name and printing the entire stylesheet")
+        else:
+            st.write("Error retrieving data from API")
     else:
         st.write("Live Map link: " + "https://api.mapbox.com/styles/v1/"+ style_url[16:]+".html?title=view&access_token="+ key +"&zoomwheel=true&fresh=true")
         stylesheet_url = "https://api.mapbox.com/styles/v1/" + style_url[16:] + "?access_token=" + key
@@ -27,7 +40,11 @@ def get_stylesheet(style_url, key):
 
 mb_style_url = st.text_input('Mapbox Style URL (copy this from the share menu of the map style)', '')
 mb_key = st.text_input('Mapbox access token (Use a token from your account if the map style is public you will be able to access the stylesheet)', '')
+layer_id = st.text_input('layer of interest (optional, if this is not included the entire style sheet will be returned)')
 testurl = "mapbox://styles/highestroad/clagdhi60000v14royyoi5w1m"
 
 if st.button("Get Stylesheet"):
-    get_stylesheet(mb_style_url, mb_key)
+    get_stylesheet(mb_style_url, mb_key, layer_id)
+
+
+
