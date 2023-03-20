@@ -46,6 +46,7 @@ fetch("./cdl-codes.json")
       cropdiv.appendChild(croplabel);
       document.getElementById("menu-body").appendChild(cropdiv);
     }
+    document.getElementById("Corn").checked = true;
     document.getElementById("menu-body").addEventListener("click", function (e) {
         console.log(e.target.id);
         cdlCodes.forEach((item) => {
@@ -57,15 +58,16 @@ fetch("./cdl-codes.json")
               console.log(cropCode, cropRed, cropGreen, cropBlue)
               let cropLightColor = `rgba(${cropRed}, ${cropGreen}, ${cropBlue} , 0.15)`
               let cropDarkColor = `rgba(${cropRed}, ${cropGreen}, ${cropBlue} , 1)`
-              map.setPaintProperty("countycropsv1 copy", "fill-color", [
+              map.setPaintProperty("county-crops", "fill-color", [
                 "interpolate",
-                ["exponential", 1],
+                ["linear"],
                 ["get", cropCode],
                 0,
                 cropLightColor,
-                500000,
+                0.8,
                 cropDarkColor
-              ]);
+              ]
+              );
             }
           });
           
