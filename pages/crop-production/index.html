@@ -18,6 +18,15 @@
         <div class="card-body" id="menu-body" style="height: calc(100vh - 40px); overflow-y: scroll;">
           <h5 class="card-title">Crop Explorer</h5>
           <p class="card-text">Select a crop below to see where it's grown in the United States</p>
+          <div class="btn-group pb-3" role="group" aria-label="Crop Toggle" id="resolution-check">
+            <input type="radio" class="btn-check" name="btnradio" id="field-level" autocomplete="off" checked="">
+            <label class="btn btn-outline-light p-2" for="field-level">Field Level</label>
+            <input type="radio" class="btn-check" name="btnradio" id="county-level" autocomplete="off" checked="">
+            <label class="btn btn-outline-light p-2" for="county-level">County Level</label>
+          </div>
+          <div id="crop-buttons">
+
+          </div>
         </div>
       </div>
     <div id="map"></div>
