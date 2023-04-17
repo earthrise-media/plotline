@@ -24,10 +24,6 @@ map.on('load', () => {
     map.setPaintProperty('flood-blue', 'fill-color-transition', {duration: 1500});
     map.setPaintProperty('floodheat', 'heatmap-opacity-transition', {duration: 1500});
 
-
-
-
-
     function delay(time) {
         return new Promise(resolve => setTimeout(resolve, time));
     }
@@ -56,8 +52,4 @@ map.on('load', () => {
             i = 0;
         }
     }, waitTime);
-
-
-
-
 });
