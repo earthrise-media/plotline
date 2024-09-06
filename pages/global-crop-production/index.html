@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+.crop-type {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    z-index: 1;
+}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="crop-type">Crop Type: <span id="crop-type"></span></div>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoicGxvdGxpbmUiLCJhIjoiY2xmOGo1NW4wMGVtNzNya2UyNnllZGcyciJ9.gUFn8Mj5HQbagkpQWaDqaw';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/plotline/cm0r8vrqy00nt01pw56fqcwc8', // style URL
+        center: [-95.95, 20.34], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 4.38 // starting zoom
+    });
+    // on hover over the layer foodgroup2max, display the value of that points max_food_group value in the crop-type div
+    map.on('mousemove', 'foodgroup2max', function(e) {
+        document.getElementById('crop-type').textContent = e.features[0].properties.max_food_group + " | " + e.features[0].properties.max_food_group_value;
+    });
+
+</script>
+
+</body>
+</html>
