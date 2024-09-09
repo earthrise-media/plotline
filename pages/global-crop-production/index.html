@@ -32,7 +32,8 @@ body { margin: 0; padding: 0; }
         container: 'map', // container ID
         style: 'mapbox://styles/plotline/cm0r8vrqy00nt01pw56fqcwc8', // style URL
         center: [-95.95, 20.34], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-        zoom: 4.38 // starting zoom
+        zoom: 4.38, // starting zoom
+        hash: true
     });
     // on hover over the layer foodgroup2max, display the value of that points max_food_group value in the crop-type div
     map.on('mousemove', 'foodgroup2max', function(e) {
