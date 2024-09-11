@@ -72,7 +72,7 @@
         const layers = {
             'btnradio1': { id: 'foodgroup2max', maxType: 'max_food_group' },
             'btnradio2': { id: 'foodgroup2maxweight', maxType: 'max_weight_food_group' },
-            'btnradio3': { id: 'foodgroup2maxlog', maxType: 'max_log_food_group' } // Assuming this layer exists
+            'btnradio3': { id: 'foodgroup2maxlog', maxType: 'log_max_group' } // Assuming this layer exists
         };
 
         let currentLayer = 'btnradio1';
@@ -104,7 +104,7 @@
 
             if (features.length > 0 && features[0].layer.id === layerInfo.id) {
                 const cropType = features[0].properties[layerInfo.maxType];
-                const cropValue = features[0].properties[layerInfo.maxType + '_value'] || features[0].properties['max_weight'] || features[0].properties['max_log'];
+                const cropValue = features[0].properties[layerInfo.maxType + '_value'] || features[0].properties['max_weight'] || features[0].properties['log_max_value'];
                 document.getElementById('crop-type').textContent = `${cropType} - ${cropValue}`;
             } else {
                 document.getElementById('crop-type').textContent = '';
