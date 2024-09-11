@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Display a map on a webpage</title>
+    <title>🌎 Food Production Demo</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/morph/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -32,15 +33,10 @@
             z-index: 1;
         }
 
-        #switch {
+        .btn-group {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: white;
-            padding: 5px;
-            border-radius: 5px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
             z-index: 1;
         }
     </style>
@@ -48,46 +44,78 @@
 
 <body>
     <div id="map"></div>
-    <div class="crop-type">Crop Type: <span id="crop-type"></span></div>
-    <!-- add a button that says switch -->
-    <button id="switch">Switch</button>
+    <div class="card bg-light mb-0 p-1 m-2" style="max-width: 25rem;">
+        <div class="card-body p-1 m-0">
+            <p class="card-text fw-bold">Crop Type: <span id="crop-type"></span></p>
+            
+        </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="Map layer selection">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+        <label class="btn btn-outline-primary" for="btnradio1">Z-Score Normalized</label>
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio2">Weight Based</label>
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio3">Log Method</label>
+    </div>
 
     <script>
-        let visibleLayer = 'foodgroup2max';
-        let maxType = 'max_food_group';
         mapboxgl.accessToken = 'pk.eyJ1IjoicGxvdGxpbmUiLCJhIjoiY2xmOGo1NW4wMGVtNzNya2UyNnllZGcyciJ9.gUFn8Mj5HQbagkpQWaDqaw';
         const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/plotline/cm0r8vrqy00nt01pw56fqcwc8', // style URL
-            center: [-95.95, 20.34], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-            zoom: 4.38, // starting zoom
+            container: 'map',
+            style: 'mapbox://styles/plotline/cm0r8vrqy00nt01pw56fqcwc8',
+            center: [-95.95, 20.34],
+            zoom: 4.38,
             hash: true
         });
-        // on hover over the layer foodgroup2max, display the value of that points max_food_group value in the crop-type div
-        map.on('mousemove', 'foodgroup2max', function (e) {
-            document.getElementById('crop-type').textContent = e.features[0].properties.max_food_group + " | " + e.features[0].properties.max_food_group_value;
-        });
-        map.on('mousemove', 'foodgroup2maxweight', function (e) {
-            document.getElementById('crop-type').textContent = e.features[0].properties.max_weight_food_group + " | " + e.features[0].properties.max_weight;
+
+        const layers = {
+            'btnradio1': { id: 'foodgroup2max', maxType: 'max_food_group' },
+            'btnradio2': { id: 'foodgroup2maxweight', maxType: 'max_weight_food_group' },
+            'btnradio3': { id: 'foodgroup2maxlog', maxType: 'max_log_food_group' } // Assuming this layer exists
+        };
+
+        let currentLayer = 'btnradio1';
+
+        function updateLayer(newLayer) {
+            // Hide all layers
+            Object.values(layers).forEach(layer => {
+                map.setLayoutProperty(layer.id, 'visibility', 'none');
+            });
+
+            // Show selected layer
+            map.setLayoutProperty(layers[newLayer].id, 'visibility', 'visible');
+            currentLayer = newLayer;
+        }
+
+        // Event listeners for radio buttons
+        document.querySelectorAll('input[name="btnradio"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    updateLayer(e.target.id);
+                }
+            });
         });
 
-        // when switch is clicked hide the layer foodgroup2max and show the layer foodgroup2maxweight
-        document.getElementById('switch').addEventListener('click', function () {
-            if (visibleLayer === 'foodgroup2max') {
-                map.setLayoutProperty('foodgroup2max', 'visibility', 'none');
-                map.setLayoutProperty('foodgroup2maxweight', 'visibility', 'visible');
-                visibleLayer = 'foodgroup2maxweight';
-                maxType = 'max_weight_food_group';
+        // Mousemove event for displaying crop type
+        map.on('mousemove', (e) => {
+            const features = map.queryRenderedFeatures(e.point);
+            const layerInfo = layers[currentLayer];
+
+            if (features.length > 0 && features[0].layer.id === layerInfo.id) {
+                const cropType = features[0].properties[layerInfo.maxType];
+                const cropValue = features[0].properties[layerInfo.maxType + '_value'] || features[0].properties['max_weight'] || features[0].properties['max_log'];
+                document.getElementById('crop-type').textContent = `${cropType} - ${cropValue}`;
             } else {
-                map.setLayoutProperty('foodgroup2max', 'visibility', 'visible');
-                map.setLayoutProperty('foodgroup2maxweight', 'visibility', 'none');
-                visibleLayer = 'foodgroup2max';
-                maxType = 'max_food_group';
+                document.getElementById('crop-type').textContent = '';
             }
         });
 
+        // Initialize the map with the default layer
+        map.on('load', () => {
+            updateLayer(currentLayer);
+        });
     </script>
-
 </body>
 
 </html>
