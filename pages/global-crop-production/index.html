@@ -7,7 +7,7 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/morph/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/journal/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -70,9 +70,9 @@
         });
 
         const layers = {
-            'btnradio1': { id: 'foodgroup2max', maxType: 'max_food_group' },
-            'btnradio2': { id: 'foodgroup2maxweight', maxType: 'max_weight_food_group' },
-            'btnradio3': { id: 'foodgroup2maxlog', maxType: 'log_max_group' } // Assuming this layer exists
+            'btnradio1': { id: 'prod-overview', maxType: 'max_food_group' },
+            // 'btnradio2': { id: 'foodgroup2maxweight', maxType: 'max_weight_food_group' },
+            // 'btnradio3': { id: 'foodgroup2maxlog', maxType: 'log_max_group' } // Assuming this layer exists
         };
 
         let currentLayer = 'btnradio1';
@@ -89,13 +89,13 @@
         }
 
         // Event listeners for radio buttons
-        document.querySelectorAll('input[name="btnradio"]').forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                if (e.target.checked) {
-                    updateLayer(e.target.id);
-                }
-            });
-        });
+        // document.querySelectorAll('input[name="btnradio"]').forEach(radio => {
+        //     radio.addEventListener('change', (e) => {
+        //         if (e.target.checked) {
+        //             updateLayer(e.target.id);
+        //         }
+        //     });
+        // });
 
         // Mousemove event for displaying crop type
         map.on('mousemove', (e) => {
