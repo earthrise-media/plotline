@@ -12,7 +12,7 @@ Public repository for content related to the the Plotline project.
 | [plotline](https://github.com/earthrise-media/plotline) | Core repository for The Plotline. This hosted a lot of data notebooks that were used to run experiments throughout the project. I'd also move some of the one off stuff we worked on here. This is also where theplotline.xyz our labs site, is hosted. |
 | [vacs-map](https://github.com/earthrise-media/vacs-map) | Repo for the Vacs Explorer app. The production app is hosted via an s3 bucket. |
 | [cafo-explorer](https://github.com/earthrise-media/cafo-explorer) | The aviary CAFO project code is here. The data and production app is hosted via s3 bucket. |
-| [food-system-digital-twin-website](https://github.com/earthrise-media/food-system-digital-twin-website) | US Foodtwin app repo. Hosts the code for the US food twin. Deployment is through infrastructure Hutch built out |
+| [food-system-digital-twin-website](https://github.com/earthrise-media/food-system-digital-twin-website) | US Foodtwin app repo. Hosts the code for the US food twin. Deployment is through custom infrastructure |
 | [farm-the-gap](https://github.com/earthrise-media/farm-the-gap) | Farm the Gap game code. It's deployed through an s3 bucket. |
 | [food-system-digital-twin](https://github.com/earthrise-media/food-system-digital-twin) | The data work that went in to the US Food Twin |
 | [deepscatter-template](https://github.com/earthrise-media/deepscatter-template) | A template i built to make it easy to make deepscatter visualizations. |
